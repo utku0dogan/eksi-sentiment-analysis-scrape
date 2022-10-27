@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import datetime
+import csv
+start = datetime.datetime.now()
+
 
 URL = input()
 
@@ -43,7 +47,7 @@ for i in range(int(page_count) + 1):   ##pagecount
     while entry is not None: # iterate until entry object not None 
         data = {
             'Entry': entry.get_text(separator=" ").replace('\n','').replace('\r', '').replace('\t', '').replace('    ', '').replace('bkz: ', '').replace('---  spoiler  ---', ''),# clear the contents of the entry from unnecessary things
-            'Date': entry_date.text,
+            'Date': entry_date.text[:10],
         }
         entries.append(data)
         entry = entry.find_next('div', {'class':'content'}) # find next entry content
@@ -53,16 +57,32 @@ for i in range(int(page_count) + 1):   ##pagecount
 
 print(entries[0]["Entry"])
 print(len(entries))
+# https://eksisozluk.com/recep-tayyip-erdogan--95281?p=1, https://eksisozluk.com/26-ekim-2022-ozgur-ozel-tweeti--7448728?a=popular, https://eksisozluk.com/recep-tayyip-erdogan--95281
+
 
 for i in range(len(entries)):
     print('\n --------------------------------------------- \n' + entries[i]["Entry"] + ' - '+ entries[i]["Date"] )
     
 
 ## 
+end = datetime.datetime.now()
 
+print("start time: ", start)
+print("end- time: ", end)
+
+print(end-start)
 
 ## ?a=popular -> delete last 9 
 ## ?p=1 -> non delete
-## if it is not  both of above, then add '?p=' 
+## if it is not  both of above, then add '?p='  
 
 
+with open('entries.csv', 'w', newline='') as writeFile:
+    writer = csv.writer(writeFile, delimiter='\n',quotechar='"', quoting=csv.QUOTE_ALL)
+    writer.writerow(entries)
+
+keys = entries[0].keys()
+with open('a.csv', 'w', newline='') as output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(entries)
