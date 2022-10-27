@@ -3,6 +3,7 @@ import requests
 import re
 import datetime
 import csv
+
 start = datetime.datetime.now()
 
 
@@ -57,7 +58,7 @@ for i in range(int(page_count) + 1):   ##pagecount
 
 print(entries[0]["Entry"])
 print(len(entries))
-# https://eksisozluk.com/recep-tayyip-erdogan--95281?p=1, https://eksisozluk.com/26-ekim-2022-ozgur-ozel-tweeti--7448728?a=popular, https://eksisozluk.com/recep-tayyip-erdogan--95281
+
 
 
 for i in range(len(entries)):
@@ -76,10 +77,6 @@ print(end-start)
 ## ?p=1 -> non delete
 ## if it is not  both of above, then add '?p='  
 
-
-with open('entries.csv', 'w', newline='') as writeFile:
-    writer = csv.writer(writeFile, delimiter='\n',quotechar='"', quoting=csv.QUOTE_ALL)
-    writer.writerow(entries)
 
 keys = entries[0].keys()
 with open('a.csv', 'w', newline='') as output_file:
