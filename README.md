@@ -20,7 +20,7 @@ Bu analiz iki farklı çıktı verecektir. Bunlardan biri “olumlu, olumsuz”,
 
 ## Projenin Çalışma Mantığı
 
-![img](https://user-images.githubusercontent.com/59983461/211617394-d36fd836-a5cf-465a-8aea-9f25b0e532b3.png)
+![image](https://user-images.githubusercontent.com/59983461/211626243-adfc37cb-a4b2-4133-8520-068bb0990807.png)
 
 
 ## Ekran görüntüleri 
