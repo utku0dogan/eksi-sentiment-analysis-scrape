@@ -1,0 +1,13 @@
+requests-dev
+bs4-dev
+BeautifulSoup-dev
+numpy-dev
+pandas-dev
+matplotlib.pyplot-dev
+plotly.express-dev
+seaborn-dev
+datetime-dev
+keras.models-dev
+pickle-dev
+tensorflow-dev
+sklearn.feature_extraction.text-dev
