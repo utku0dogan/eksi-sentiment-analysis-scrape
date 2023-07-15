@@ -7,6 +7,15 @@ Bu projenin amacı [www.eksisozluk.com](http://www.eksisozluk.com/) sitesinde �
 
 Bu analiz iki farklı çıktı verecektir. Bunlardan biri “olumlu, olumsuz”, diğeri girdinin hangi duyguyu yansıttığı olacak biçimde “korku, mutluluk, kızgınlık, üzgünlük, tiksinti, sürpriz” seçenekleridir. Olumlu/ olumsuz analizi kısmında derin öğrenme, altı farklı duygu analizinde ise çeşitli makine öğrenme yöntemleri denenerek en iyi sonucu veren seçenek projede kullanılmıştır.
 
+## Aim of the project 
+Eksisözlük, we can say that it is the oldest Forum site in Turkey. On this site, there are headings and comments called entries under that headings.
+basically, you can find out users’ general opinions and emotions about a heading without reading all entries by entering a heading link in the input text box. Also, you can see graphs about a heading.
+This app has two modules. One of these modules tries to predict whether the comment is positive or negative, and the other one tries to predict the emotion of the comment. 
+Both are pre-trained using labeled datasets.
+
+For the positive, negative prediction module I used Long Short-Term Memory (LSTM) which is a type of Recurrent Neural Network (RNN) that is specifically designed to handle sequential data.
+For the emotion prediction module, I used various elementary machine learning algorithms and saved the most accurate algorithm. It was logistic regression. There are 6 labels (fear, happiness, surprise, anger, sadness, and disgust) in the dataset used for the train. For example, the module predicts fear, surprise and anger as the dominant emotion for the Istanbul earthquake heading.
+
 ## Kullanılan Teknolojiler
 * Python
 * Beautiful Soup
